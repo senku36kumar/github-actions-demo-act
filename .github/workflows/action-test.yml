@@ -1,1 +1,33 @@
 name: Run Go Test
+
+on:
+  push:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Add ca-certificates, gcc
+        run: |
+          apt-get update
+          apt-get -y install ca-certificates
+          apt-get -y install gcc
+          update-ca-certificates
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.18
+
+      - name: Go Build
+        run: go build -v ./...
+
+      - name: Go Test
+        run: go test ./...
+        
