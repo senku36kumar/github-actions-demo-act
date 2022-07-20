@@ -2,7 +2,7 @@ name: Build And Push Docker
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "gh-action" ]
 
   workflow_dispatch:
 
