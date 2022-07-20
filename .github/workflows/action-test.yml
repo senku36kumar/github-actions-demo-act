@@ -1,4 +1,4 @@
-name: Run Go Test
+name: Build And Push Docker
 
 on:
   push:
