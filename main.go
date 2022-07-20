@@ -15,7 +15,7 @@ func main() {
 
 	for i := 0; i < 10; i++ {
 		time.Sleep(time.Minute * 2)
-		// Do something every 5min
+		// Do something every 2min
 		const name = "Optum"
 		s := fmt.Sprintf("We are %s\n", name)
 		fmt.Println(s)

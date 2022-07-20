@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-text
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-text
+  template:
+    metadata:
+      labels:
+        app: hello-text
+    spec:
+      containers:
+        - image: USERNAME/IMAGE1:TAG
+          imagePullPolicy: Always
+          name: ms2-hellotextkubernetes
+          ports:
+            - containerPort: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-text
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8081
+  selector:
+    app: hello-text
+
