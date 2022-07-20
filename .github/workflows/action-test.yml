@@ -16,13 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Add ca-certificates, gcc
-        run: |
-          apt-get update
-          apt-get -y install ca-certificates
-          apt-get -y install gcc
-          update-ca-certificates
-
       - name: Set up Go
         uses: actions/setup-go@v2
         with:
